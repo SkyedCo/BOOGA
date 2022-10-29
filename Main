@@ -1,3 +1,20 @@
+-- fuck off skid
+
+-- Glory Hub v1 (beta)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- Gui to Lua
@@ -6,266 +23,270 @@
 -- Instances:
 
 local ScreenGui = Instance.new("ScreenGui")
-local GUIholder = Instance.new("Frame")
-local GuiNotMinimized = Instance.new("Frame")
-local Closebutton = Instance.new("TextButton")
-local MinimizeButton = Instance.new("TextButton")
+local GuiHolder = Instance.new("Frame")
+local Gui = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local Killgui = Instance.new("TextButton")
+local minimze = Instance.new("TextButton")
 local TextLabel = Instance.new("TextLabel")
 local Tab1 = Instance.new("Frame")
+local AirWalk = Instance.new("TextButton")
+local WaterWalk = Instance.new("TextButton")
+local WaterOn = Instance.new("TextLabel")
+local Minimzed = Instance.new("Frame")
+local Unminimize = Instance.new("TextButton")
+local Killgui_2 = Instance.new("TextButton")
 local TextLabel_2 = Instance.new("TextLabel")
-local TextButton = Instance.new("TextButton")
-local TabHolder = Instance.new("Frame")
-local TextLabel_3 = Instance.new("TextLabel")
-local Tab2 = Instance.new("Frame")
-local GuiMinimized = Instance.new("Frame")
-local TextLabel_4 = Instance.new("TextLabel")
-local UnMinimizeButton = Instance.new("TextButton")
-local Closebutton_2 = Instance.new("TextButton")
 
 --Properties:
 
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-GUIholder.Name = "GUIholder"
-GUIholder.Parent = ScreenGui
-GUIholder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GUIholder.BackgroundTransparency = 1.000
-GUIholder.Position = UDim2.new(0.253237396, 0, 0.281481475, 0)
-GUIholder.Size = UDim2.new(0, 386, 0, 103)
-GUIholder.Active = true
-GUIholder.Draggable = true
-GUIholder.Visible = true
+GuiHolder.Name = "GuiHolder"
+GuiHolder.Parent = ScreenGui
+GuiHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuiHolder.BackgroundTransparency = 1.000
+GuiHolder.Position = UDim2.new(0.192992538, 0, 0.28765431, 0)
+GuiHolder.Size = UDim2.new(0, 272, 0, 79)
+GuiHolder.Active = true
+GuiHolder.Draggable = true
 
-GuiNotMinimized.Name = "GuiNotMinimized"
-GuiNotMinimized.Parent = GUIholder
-GuiNotMinimized.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-GuiNotMinimized.Position = UDim2.new(0.0103302449, 0, 0.300970912, 0)
-GuiNotMinimized.Size = UDim2.new(0, 378, 0, 41)
-GuiNotMinimized.Visible = true
-GuiNotMinimized.Active = true
+Gui.Name = "Gui"
+Gui.Parent = GuiHolder
+Gui.BackgroundColor3 = Color3.fromRGB(244, 87, 39)
+Gui.Position = UDim2.new(0.0661764741, 0, 0.265822768, 0)
+Gui.Size = UDim2.new(0, 235, 0, 36)
+Gui.Visible = false
 
-Closebutton.Name = "Close button"
-Closebutton.Parent = GuiNotMinimized
-Closebutton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-Closebutton.BackgroundTransparency = 1.000
-Closebutton.BorderColor3 = Color3.fromRGB(40, 40, 40)
-Closebutton.Position = UDim2.new(0.891534209, 0, 0, 0)
-Closebutton.Size = UDim2.new(0, 41, 0, 41)
-Closebutton.Font = Enum.Font.Michroma
-Closebutton.Text = "x"
-Closebutton.TextColor3 = Color3.fromRGB(255, 255, 255)
-Closebutton.TextScaled = true
-Closebutton.TextSize = 14.000
-Closebutton.TextWrapped = true
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Parent = Gui
 
-MinimizeButton.Name = "Minimize Button"
-MinimizeButton.Parent = GuiNotMinimized
-MinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-MinimizeButton.BackgroundTransparency = 1.000
-MinimizeButton.Position = UDim2.new(0.743386269, 0, 0, 0)
-MinimizeButton.Size = UDim2.new(0, 49, 0, 41)
-MinimizeButton.Font = Enum.Font.Michroma
-MinimizeButton.Text = "-"
-MinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-MinimizeButton.TextScaled = true
-MinimizeButton.TextSize = 14.000
-MinimizeButton.TextWrapped = true
+Killgui.Name = "Kill gui"
+Killgui.Parent = Gui
+Killgui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Killgui.BackgroundTransparency = 1.000
+Killgui.Position = UDim2.new(0.642553151, 0, -0.0833333358, 0)
+Killgui.Size = UDim2.new(0, 38, 0, 42)
+Killgui.Font = Enum.Font.Gotham
+Killgui.Text = "x"
+Killgui.TextColor3 = Color3.fromRGB(255, 255, 255)
+Killgui.TextSize = 14.000
 
-TextLabel.Parent = GuiNotMinimized
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+minimze.Name = "minimze"
+minimze.Parent = Gui
+minimze.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+minimze.BackgroundTransparency = 1.000
+minimze.Position = UDim2.new(0.838297844, 0, 0, 0)
+minimze.Size = UDim2.new(0, 38, 0, 42)
+minimze.Font = Enum.Font.Gotham
+minimze.Text = ">"
+minimze.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimze.TextSize = 14.000
+
+TextLabel.Parent = Gui
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(177, 16, 16)
-TextLabel.Position = UDim2.new(0.140211642, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 200, 0, 41)
-TextLabel.Font = Enum.Font.Sarpanch
+TextLabel.Position = UDim2.new(-0.0340425521, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 159, 0, 36)
+TextLabel.Font = Enum.Font.Cartoon
 TextLabel.Text = "Glory Hub Private | Booga Booga"
 TextLabel.TextColor3 = Color3.fromRGB(177, 16, 16)
-TextLabel.TextSize = 20.000
+TextLabel.TextSize = 10.000
+TextLabel.TextWrapped = true
 
-Tab1.Name = "Tab 1"
-Tab1.Parent = GuiNotMinimized
+Tab1.Name = "Tab1"
+Tab1.Parent = Gui
 Tab1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Tab1.BorderColor3 = Color3.fromRGB(177, 16, 16)
+Tab1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Tab1.Position = UDim2.new(0, 0, 1, 0)
-Tab1.Size = UDim2.new(0, 378, 0, 173)
+Tab1.Size = UDim2.new(0, 235, 0, 132)
 
-TextLabel_2.Parent = Tab1
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0.285714298, 0, 0.132947981, 0)
-TextLabel_2.Size = UDim2.new(0, 145, 0, 50)
-TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = "AirWalk"
-TextLabel_2.TextColor3 = Color3.fromRGB(177, 100, 100)
-TextLabel_2.TextSize = 25.000
+AirWalk.Name = "AirWalk"
+AirWalk.Parent = Tab1
+AirWalk.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AirWalk.BackgroundTransparency = 1.000
+AirWalk.Position = UDim2.new(0.0723404288, 0, 0.560606003, 0)
+AirWalk.Size = UDim2.new(0, 200, 0, 50)
+AirWalk.Font = Enum.Font.Cartoon
+AirWalk.Text = "Air Walk"
+AirWalk.TextColor3 = Color3.fromRGB(177, 16, 16)
+AirWalk.TextSize = 20.000
+AirWalk.TextWrapped = true
 
-TextButton.Parent = TextLabel_2
-TextButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.Position = UDim2.new(0.783965468, 0, 0.201577157, 0)
-TextButton.Size = UDim2.new(0, 31, 0, 28)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = ""
-TextButton.TextColor3 = Color3.fromRGB(177, 50, 50)
-TextButton.TextSize = 35.000
-TextButton.TextWrapped = true
+WaterWalk.Name = "WaterWalk"
+WaterWalk.Parent = Tab1
+WaterWalk.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WaterWalk.BackgroundTransparency = 1.000
+WaterWalk.Position = UDim2.new(0.0723404288, 0, 0.113636315, 0)
+WaterWalk.Size = UDim2.new(0, 200, 0, 50)
+WaterWalk.Font = Enum.Font.Cartoon
+WaterWalk.Text = "Free Water Walk [Q]"
+WaterWalk.TextColor3 = Color3.fromRGB(177, 16, 16)
+WaterWalk.TextSize = 20.000
+WaterWalk.TextWrapped = true
 
-TabHolder.Name = "Tab Holder"
-TabHolder.Parent = GuiNotMinimized
-TabHolder.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-TabHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TabHolder.Position = UDim2.new(0.0185185187, 0, 1.17073166, 0)
-TabHolder.Size = UDim2.new(0, 101, 0, 160)
+WaterOn.Name = "WaterOn"
+WaterOn.Parent = Gui
+WaterOn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WaterOn.BackgroundTransparency = 1.000
+WaterOn.BorderColor3 = Color3.fromRGB(27, 42, 53)
+WaterOn.Position = UDim2.new(0.0723404288, 0, 1.41666663, 0)
+WaterOn.Size = UDim2.new(0, 200, 0, 50)
+WaterOn.Visible = false
+WaterOn.Font = Enum.Font.Cartoon
+WaterOn.Text = "Free Water Walk [Q]"
+WaterOn.TextColor3 = Color3.fromRGB(183, 15, 255)
+WaterOn.TextSize = 20.000
 
-TextLabel_3.Parent = TabHolder
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_3.Position = UDim2.new(0.0462570935, 0, 0.0554552078, 0)
-TextLabel_3.Size = UDim2.new(0, 90, 0, 41)
-TextLabel_3.Font = Enum.Font.Cartoon
-TextLabel_3.Text = "Main"
-TextLabel_3.TextColor3 = Color3.fromRGB(177, 16, 16)
-TextLabel_3.TextSize = 25.000
+Minimzed.Name = "Minimzed"
+Minimzed.Parent = GuiHolder
+Minimzed.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Minimzed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Minimzed.Position = UDim2.new(0.0661764741, 0, 0.265822798, 0)
+Minimzed.Size = UDim2.new(0, 235, 0, 36)
 
-Tab2.Name = "Tab2"
-Tab2.Parent = GuiNotMinimized
-Tab2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Tab2.BorderColor3 = Color3.fromRGB(177, 16, 16)
-Tab2.Position = UDim2.new(0, 0, 1, 0)
-Tab2.Size = UDim2.new(0, 378, 0, 173)
-Tab2.Visible = false
+Unminimize.Name = "Unminimize"
+Unminimize.Parent = Minimzed
+Unminimize.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Unminimize.BackgroundTransparency = 1.000
+Unminimize.Position = UDim2.new(0.838297844, 0, 0, 0)
+Unminimize.Size = UDim2.new(0, 38, 0, 42)
+Unminimize.Font = Enum.Font.Gotham
+Unminimize.Text = "V"
+Unminimize.TextColor3 = Color3.fromRGB(255, 255, 255)
+Unminimize.TextSize = 14.000
 
-GuiMinimized.Name = "GuiMinimized"
-GuiMinimized.Parent = GUIholder
-GuiMinimized.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-GuiMinimized.Position = UDim2.new(0.0103302449, 0, 0.300970912, 0)
-GuiMinimized.Size = UDim2.new(0, 378, 0, 41)
-GuiMinimized.Visible = false
+Killgui_2.Name = "Kill gui"
+Killgui_2.Parent = Minimzed
+Killgui_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Killgui_2.BackgroundTransparency = 1.000
+Killgui_2.Position = UDim2.new(0.642553151, 0, -0.0833333358, 0)
+Killgui_2.Size = UDim2.new(0, 38, 0, 42)
+Killgui_2.Font = Enum.Font.Gotham
+Killgui_2.Text = "x"
+Killgui_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Killgui_2.TextSize = 14.000
 
-TextLabel_4.Parent = GuiMinimized
-TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_4.BackgroundTransparency = 1.000
-TextLabel_4.BorderColor3 = Color3.fromRGB(177, 16, 16)
-TextLabel_4.Position = UDim2.new(0.140211642, 0, 0, 0)
-TextLabel_4.Size = UDim2.new(0, 200, 0, 41)
-TextLabel_4.Font = Enum.Font.Sarpanch
-TextLabel_4.Text = "Glory Hub Private | Booga Booga"
-TextLabel_4.TextColor3 = Color3.fromRGB(177, 16, 16)
-TextLabel_4.TextSize = 20.000
-
-UnMinimizeButton.Name = "UnMinimize Button"
-UnMinimizeButton.Parent = GuiMinimized
-UnMinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-UnMinimizeButton.BackgroundTransparency = 1.000
-UnMinimizeButton.Position = UDim2.new(0.743386269, 0, 0, 0)
-UnMinimizeButton.Size = UDim2.new(0, 49, 0, 41)
-UnMinimizeButton.Font = Enum.Font.Michroma
-UnMinimizeButton.Text = "+"
-UnMinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-UnMinimizeButton.TextScaled = true
-UnMinimizeButton.TextSize = 14.000
-UnMinimizeButton.TextWrapped = true
-
-Closebutton_2.Name = "Close button"
-Closebutton_2.Parent = GuiMinimized
-Closebutton_2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-Closebutton_2.BackgroundTransparency = 1.000
-Closebutton_2.BorderColor3 = Color3.fromRGB(40, 40, 40)
-Closebutton_2.Position = UDim2.new(0.891534209, 0, 0, 0)
-Closebutton_2.Size = UDim2.new(0, 41, 0, 41)
-Closebutton_2.Font = Enum.Font.Michroma
-Closebutton_2.Text = "x"
-Closebutton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Closebutton_2.TextScaled = true
-Closebutton_2.TextSize = 14.000
-Closebutton_2.TextWrapped = true
+TextLabel_2.Parent = Minimzed
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderColor3 = Color3.fromRGB(177, 16, 16)
+TextLabel_2.Position = UDim2.new(-0.0340425521, 0, 0, 0)
+TextLabel_2.Size = UDim2.new(0, 159, 0, 36)
+TextLabel_2.Font = Enum.Font.Cartoon
+TextLabel_2.Text = "Glory Hub Private | Booga Booga"
+TextLabel_2.TextColor3 = Color3.fromRGB(177, 16, 16)
+TextLabel_2.TextSize = 10.000
+TextLabel_2.TextWrapped = true
 
 -- Scripts:
 
-local function FFYCZZU_fake_script() -- Closebutton.LocalScript 
-	local script = Instance.new('LocalScript', Closebutton)
+local function PPGQ_fake_script() -- Killgui.LocalScript 
+	local script = Instance.new('LocalScript', Killgui)
 
 	script.Parent.MouseButton1Down:connect(function()
 		game:GetService("CoreGui"):WaitForChild("ScreenGui"):Destroy()
+	
 	end)
 	
 	
 end
-coroutine.wrap(FFYCZZU_fake_script)()
-local function BXZYGBS_fake_script() -- MinimizeButton.LocalScript 
-	local script = Instance.new('LocalScript', MinimizeButton)
+coroutine.wrap(PPGQ_fake_script)()
+local function OZZA_fake_script() -- minimze.LocalScript 
+	local script = Instance.new('LocalScript', minimze)
 
 	script.Parent.MouseButton1Down:connect(function()
-		GuiMinimized.Visible = true
-		GuiNotMinimzed.Visible = false
-		
+	
+		Minimzed.Visible = true
+		Gui.Visible = false
 	end)
 	
+	
 end
-coroutine.wrap(BXZYGBS_fake_script)()
-local function OJSI_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
+coroutine.wrap(OZZA_fake_script)()
+local function IBVLU_fake_script() -- AirWalk.LocalScript 
+	local script = Instance.new('LocalScript', AirWalk)
 
+	toggle = false
+	script.Parent.MouseButton1Down:connect(function()
 	
-	
-	
-	_G.AirWalk = false
-	
-	if _G.AirWalk == false then
-		script.Parent.MouseButton1Down:connect(function()
-			_G.AirWalk = true
-		end)
-		if _G.AirWalk == true then
-			script.Parent.MouseButton1Down:connect(function()
-				_G.AirWalk = false
-			end)
+		if toggle == true then 
+			toggle = false 
+		else
+			toggle = true
 		end
-	end
+		if toggle == true then 
+			script.Parent.TextColor3 = Color3.fromRGB(183, 15, 255)
+		end
+		if toggle == false then 
+			script.Parent.TextColor3 = Color3.fromRGB(177, 16, 16)
+		end
 	
-	
-	while _G.AirWalk == true do
-		local Player = game.Players.LocalPlayer.Character
-		Player.Humanoid.HipHeight = 5
-		
-		script.Parent.BackgroundColor3 = Color3.fromRGB(136, 17, 255)
-	
-	end
-	
-	while _G.AirWalk == false do
-		local Player = game.Players.LocalPlayer.Character
-		Player.Humanoid.HipHeight = 2
-		script.Parent.BackgroundColor3 = Color3.fromRGB(40,40,40)
-	
-	end
-	
-	
-	
-	
-		
-	
-	
-end
-coroutine.wrap(OJSI_fake_script)()
-local function BDICLPR_fake_script() -- UnMinimizeButton.LocalScript 
-	local script = Instance.new('LocalScript', UnMinimizeButton)
-
-	script.Parent.MouseButton1Down:connect(function()
-		GuiNotMinimzed.Visible = true
-		GuiMinimized.Visible = false
-		
-		
+		if toggle == true then
+			local Player = game.Players.LocalPlayer.Character
+			Player.Humanoid.HipHeight = 5
+		end
+		if toggle == false then 
+			local Player = game.Players.LocalPlayer.Character
+			Player.Humanoid.HipHeight = 2
+		end
 	end)
 	
 end
-coroutine.wrap(BDICLPR_fake_script)()
-local function TCEMZL_fake_script() -- Closebutton_2.LocalScript 
-	local script = Instance.new('LocalScript', Closebutton_2)
+coroutine.wrap(IBVLU_fake_script)()
+local function YGKGGRL_fake_script() -- WaterWalk.LocalScript 
+	local script = Instance.new('LocalScript', WaterWalk)
+
+	
+	script.Parent.MouseButton1Down:connect(function()
+		
+		
+		local Player = game:GetService'Players'.LocalPlayer;
+		local UIS = game:GetService'UserInputService';
+		UIS.InputBegan:connect(function(UserInput)
+			if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Q then
+				_G.Running = true
+				while wait(0) and _G.Running == true do
+	
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.5
+				end
+			end
+		end)
+		UIS.InputEnded:connect(function(UserInput)
+			if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Q then
+				_G.Running = false
+			end
+		end)
+		script.Parent.TextColor3 = Color3.fromRGB(183, 15, 255)
+		
+		WaterWalk.Visible = false
+		WaterOn.Visible = true
+	
+	end)
+	
+	
+end
+coroutine.wrap(YGKGGRL_fake_script)()
+local function TBQQHMN_fake_script() -- Unminimize.LocalScript 
+	local script = Instance.new('LocalScript', Unminimize)
+
+	script.Parent.MouseButton1Down:connect(function()
+		Gui.Visible = true
+		Minimzed.Visible = false
+	end)
+	
+	
+end
+coroutine.wrap(TBQQHMN_fake_script)()
+local function NAHMZLS_fake_script() -- Killgui_2.LocalScript 
+	local script = Instance.new('LocalScript', Killgui_2)
 
 	script.Parent.MouseButton1Down:connect(function()
 		game:GetService("CoreGui"):WaitForChild("ScreenGui"):Destroy()
+	
 	end)
 	
 	
 end
-coroutine.wrap(TCEMZL_fake_script)()
+coroutine.wrap(NAHMZLS_fake_script)()
